@@ -40,16 +40,16 @@ bool Rule::isCorrect(char charInput, string word)
   return false;
 }
 
-int Rule::decreaseGuess(int guessPoint)
+int Rule::decreaseGuessPoint(int currentGuessPoint)
 {
-  return --guessPoint;
+  return --currentGuessPoint;
 }
 
-bool Rule::isAlreadyGuess(char charInput, vector<char> currentWord)
+bool Rule::isAlreadyGuess(char charInput, vector<char> currentCharacters)
 {
   charInput = tolower(charInput);
 
-  for (char character : currentWord)
+  for (char character : currentCharacters)
   {
     if (charInput == character)
     {
@@ -60,15 +60,20 @@ bool Rule::isAlreadyGuess(char charInput, vector<char> currentWord)
   return false;
 }
 
-bool Rule::isWinning(Word word, vector<char> currentCharacter)
+bool Rule::isWinning(Word word, vector<char> currentCharacters)
 {
   for (char character : word.word)
   {
-    if (find(currentCharacter.begin(), currentCharacter.end(), character) == currentCharacter.end())
+    if (isSameWord(character, currentCharacters))
       return false;
   }
 
   return true;
+}
+
+bool Rule::isSameWord(char character, vector<char> currentCharacters)
+{
+  return find(currentCharacters.begin(), currentCharacters.end(), character) == currentCharacters.end();
 }
 
 bool Rule::isLosing(int currentGuessPoint)

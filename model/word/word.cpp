@@ -33,6 +33,11 @@ bool Word::isAlphabet(char character)
   return isalpha(static_cast<unsigned char>(character));
 }
 
+bool Word::hasCharacter(vector<char> currentCharacters, int index)
+{
+  return find(currentCharacters.begin(), currentCharacters.end(), word[index]) != currentCharacters.end();
+}
+
 string Word::transformWord(vector<char> currentCharacters)
 {
   string transformedWord;
@@ -41,9 +46,7 @@ string Word::transformWord(vector<char> currentCharacters)
 
   for (int count = 0; count < word.size(); count++)
   {
-    bool hasCharacter = find(currentCharacters.begin(), currentCharacters.end(), word[count]) != currentCharacters.end();
-
-    if (hasCharacter)
+    if (hasCharacter(currentCharacters, count))
     {
       if (count == 0)
       {

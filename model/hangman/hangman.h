@@ -12,7 +12,7 @@ class Hangman
 public:
   Hangman() {};
 
-  Category importWords(string filename);
+  Category fileToCategory(string filename);
 
   void play();
 };

@@ -1,7 +1,8 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 #include "gameplay.h"
+#include "model/word/word.h"
 
 using namespace std;
 
@@ -15,15 +16,11 @@ void Gameplay::start()
   gameState = GameState::SELECT;
 }
 
-vector<Word> Gameplay::selectCategory(int categoryIndex)
+vector<Word> Gameplay::getWords(int categoryIndex)
 {
   vector<Word> words = categorys.at(categoryIndex).words;
 
   return words;
-}
-
-void Gameplay::readyToPlay()
-{
 }
 
 int Gameplay::addScore()
@@ -34,7 +31,6 @@ int Gameplay::addScore()
 void Gameplay::setWord(Word randomWord)
 {
   word = randomWord;
-
   gameState = GameState::PLAY;
 }
 

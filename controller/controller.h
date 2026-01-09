@@ -1,8 +1,6 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include <string>
-
 #include "model/gameplay/gameplay.h"
 
 using namespace std;

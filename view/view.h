@@ -1,8 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <string>
-
 #include "model/gameplay/gameplay.h"
 
 using namespace std;
@@ -10,9 +8,9 @@ using namespace std;
 class View
 {
 public:
-  Gameplay& gameplay;
+  Gameplay &gameplay;
 
-  View(Gameplay& gameplay) : gameplay(gameplay) {}
+  View(Gameplay &gameplay) : gameplay(gameplay) {}
 
   void printCategorys();
 

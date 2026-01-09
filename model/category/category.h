@@ -15,8 +15,6 @@ public:
   vector<Word> words;
 
   Category(string name, vector<Word> words) : name(name), words(words) {}
-
-  void printCategoryName();
 };
 
 #endif

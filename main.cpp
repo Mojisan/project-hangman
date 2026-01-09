@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 #include "model/hangman/hangman.h"
 

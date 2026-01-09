@@ -1,7 +1,6 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
-#include <string>
 #include <optional>
 
 #include "model/word/word.h"
@@ -43,9 +42,7 @@ public:
 
   void start();
 
-  vector<Word> selectCategory(int categoryIndex);
-
-  void readyToPlay();
+  vector<Word> getWords(int categoryIndex);
 
   int addScore();
 

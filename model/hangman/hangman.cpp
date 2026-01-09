@@ -7,7 +7,7 @@
 #include "model/category/category.h"
 #include "model/rule/rule.h"
 #include "model/gameplay/gameplay.h"
-#include "model/hangman/hangman.h"
+#include "hangman.h"
 
 #include "view/view.h"
 
@@ -15,7 +15,7 @@
 
 using namespace std;
 
-Category Hangman::importWords(string filename)
+Category Hangman::fileToCategory(string filename)
 {
   ifstream file(filename);
   vector<Word> words;
@@ -54,12 +54,12 @@ Category Hangman::importWords(string filename)
 
 void Hangman::play()
 {
-  Category animal = importWords("words/animal.txt");
-  Category english = importWords("words/englishpremierleague2018_2019.txt");
+  Category animal = fileToCategory("words/animal.txt");
+  Category englishPremierLeague = fileToCategory("words/englishpremierleague2018_2019.txt");
 
   Rule rule(10);
 
-  Gameplay gameplay(rule, {animal, english});
+  Gameplay gameplay(rule, {animal, englishPremierLeague});
 
   Controller controller(gameplay);
   View view(gameplay);
@@ -81,7 +81,7 @@ void Hangman::play()
 
       int categoryIndex = controller.inputIndexCategory();
 
-      vector<Word> words = gameplay.selectCategory(categoryIndex);
+      vector<Word> words = gameplay.getWords(categoryIndex);
 
       Word word = rule.randomWord(words);
 
@@ -129,7 +129,7 @@ void Hangman::play()
         }
         else
         {
-          gameplay.currentGuessPoint = rule.decreaseGuess(gameplay.currentGuessPoint);
+          gameplay.currentGuessPoint = rule.decreaseGuessPoint(gameplay.currentGuessPoint);
 
           if (rule.isLosing(gameplay.currentGuessPoint))
           {

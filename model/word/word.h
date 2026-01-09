@@ -22,6 +22,8 @@ public:
   bool isAlphabet(char character);
 
   string transformWord(vector<char> characters);
+
+  bool hasCharacter(vector<char> currentCharacters, int index);
 };
 
 #endif

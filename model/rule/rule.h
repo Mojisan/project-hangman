@@ -22,13 +22,15 @@ public:
 
   bool isCorrect(char charInput, string word);
 
-  int decreaseGuess(int guessPoint);
+  int decreaseGuessPoint(int currentGuessPoint);
 
-  bool isAlreadyGuess(char charInput, vector<char> currentWord);
+  bool isAlreadyGuess(char charInput, vector<char> currentCharacters);
 
-  bool isWinning(Word word, vector<char> currentWord);
+  bool isWinning(Word word, vector<char> currentCharacters);
 
   bool isLosing(int currentGuessPoint);
+
+  bool isSameWord(char character, vector<char> currentCharacters);
 };
 
 #endif
