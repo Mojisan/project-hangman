@@ -12,23 +12,34 @@ using namespace std;
 class Gameplay
 {
 public:
-  enum class GameStage
+  enum class GameState
   {
     START,
     SELECT,
     PLAY,
-    END
+    END,
+    EXIT
+  };
+
+  enum class GameResult
+  {
+    UNKNOWN,
+    WIN,
+    LOSE,
   };
 
   int score;
   int currentGuessPoint;
   optional<Word> word;
-  vector<char> currentWord;
-  GameStage gameStage;
+  vector<char> currentCharacter;
+  GameState gameState;
   vector<Category> categorys;
   Rule rule;
+  GameResult gameResult;
 
-  Gameplay(Rule rule, vector<Category> categorys) : score(0), currentGuessPoint(0), word(), currentWord(), gameStage(GameStage::START), categorys(categorys), rule(rule) {}
+  Gameplay(Rule rule, vector<Category> categorys) : score(0), currentGuessPoint(0), word(), currentCharacter(), gameState(GameState::START), categorys(categorys), rule(rule), gameResult(GameResult::UNKNOWN)
+  {
+  }
 
   void start();
 
@@ -36,11 +47,19 @@ public:
 
   void readyToPlay();
 
-  int addScore(bool correct);
-
-  bool isEnding(bool ending);
+  int addScore();
 
   void setWord(Word randomWord);
+
+  void setLose();
+
+  void setWin();
+
+  void addCharacter(char charInput);
+
+  bool isPlaying();
+
+  void setExitGame();
 };
 
 #endif

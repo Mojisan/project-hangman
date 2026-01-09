@@ -12,10 +12,9 @@ class Category
 {
 public:
   string name;
-  Word::CategoryType type;
   vector<Word> words;
 
-  Category(string name, Word::CategoryType type, vector<Word> words) : name(name), type(type), words(words) {}
+  Category(string name, vector<Word> words) : name(name), words(words) {}
 
   void printCategoryName();
 };

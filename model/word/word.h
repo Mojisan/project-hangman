@@ -2,27 +2,26 @@
 #define WORD_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Word
 {
 public:
-  enum class CategoryType
-  {
-    ANIMAL,
-    ENGLISH_PREMIER_LEAGUE_2018_2019,
-  };
-
   string word;
   string hint;
-  CategoryType category;
+  string category;
 
-  Word(string word, string hint, CategoryType category) : word(word), hint(hint), category(category) {}
+  Word(string word, string hint, string category) : word(word), hint(hint), category(category) {}
 
   void printWord();
 
-  string transformWord();
+  string removeSpecialCharacter();
+
+  bool isAlphabet(char character);
+
+  string transformWord(vector<char> characters);
 };
 
 #endif

@@ -26,7 +26,7 @@ public:
 
   bool isAlreadyGuess(char charInput, vector<char> currentWord);
 
-  bool isWinning(string word, vector<char> currentWord);
+  bool isWinning(Word word, vector<char> currentWord);
 
   bool isLosing(int currentGuessPoint);
 };
