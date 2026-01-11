@@ -30,6 +30,7 @@ public:
   int score;
   int currentGuessPoint;
   optional<Word> word;
+  string originalWord;
   vector<char> currentCharacter;
   GameState gameState;
   vector<Category> categorys;

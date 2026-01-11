@@ -30,7 +30,11 @@ int Gameplay::addScore()
 
 void Gameplay::setWord(Word randomWord)
 {
+  originalWord = randomWord.word;
+  randomWord.word = randomWord.removeSpecialCharacter();
+
   word = randomWord;
+
   gameState = GameState::PLAY;
 }
 
