@@ -11,7 +11,6 @@ using namespace std;
 void View::printCategorys()
 {
   Category firstCategory = *gameplay.categorys.begin();
-
   vector<Category> categorys = gameplay.categorys;
 
   cout << "Select Category:" << endl;
@@ -45,7 +44,6 @@ void View::printScore()
 void View::printGameStatus()
 {
   cout << gameplay.getRevealedWord(gameplay.currentCharacter, gameplay.originalWord);
-
   cout << "  score  " << gameplay.score << ", remaining incorrect guess " << gameplay.currentGuessPoint << endl;
 }
 

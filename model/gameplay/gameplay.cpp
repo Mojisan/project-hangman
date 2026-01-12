@@ -11,7 +11,6 @@ using namespace std;
 void Gameplay::start()
 {
   gameState = GameState::START;
-
   currentGuessPoint = rule.guessPoint;
   score = 0;
 
@@ -34,7 +33,6 @@ void Gameplay::setWord(Word randomWord)
 {
   originalWord = randomWord.word;
   randomWord.word = removeSpecialCharacter(originalWord);
-
   word = randomWord;
 
   gameState = GameState::PLAY;

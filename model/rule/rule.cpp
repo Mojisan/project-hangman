@@ -25,9 +25,9 @@ char Rule::inputCharacter(char character)
 
 bool Rule::isCorrect(char charInput, string word)
 {
-  transform(word.begin(), word.end(), word.begin(), ::tolower);
-
   charInput = tolower(charInput);
+
+  transform(word.begin(), word.end(), word.begin(), ::tolower);
 
   for (char character : word)
   {
