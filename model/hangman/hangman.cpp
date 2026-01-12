@@ -62,7 +62,10 @@ void Hangman::play()
   Gameplay gameplay(rule, {animal, englishPremierLeague});
 
   Controller controller(gameplay);
+
   View view(gameplay);
+
+  int scorePoint = 5;
 
   while (gameplay.gameState != Gameplay::GameState::EXIT)
   {
@@ -80,9 +83,7 @@ void Hangman::play()
       view.printCategorys();
 
       int categoryIndex = controller.inputIndexCategory();
-
       vector<Word> words = gameplay.getWords(categoryIndex);
-
       Word word = rule.randomWord(words);
 
       gameplay.setWord(word);
@@ -113,13 +114,12 @@ void Hangman::play()
 
         if (rule.isCorrect(charInput, gameplay.word->word))
         {
-          gameplay.addScore();
+          gameplay.addScore(scorePoint);
 
           if (gameplay.word.has_value() &&
               rule.isWinning(gameplay.word.value(), gameplay.currentCharacter))
           {
             gameplay.setWin();
-
             view.printGameStatus();
 
             break;
@@ -148,7 +148,6 @@ void Hangman::play()
     case Gameplay::GameState::END:
     {
       view.printEnding();
-
       gameplay.setExitGame();
 
       break;

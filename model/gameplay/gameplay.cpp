@@ -11,7 +11,6 @@ using namespace std;
 void Gameplay::start()
 {
   gameState = GameState::START;
-
   currentGuessPoint = rule.guessPoint;
   score = 0;
 
@@ -25,16 +24,15 @@ vector<Word> Gameplay::getWords(int categoryIndex)
   return words;
 }
 
-int Gameplay::addScore()
+int Gameplay::addScore(int point)
 {
-  return score += 5;
+  return score += point;
 }
 
 void Gameplay::setWord(Word randomWord)
 {
   originalWord = randomWord.word;
   randomWord.word = removeSpecialCharacter(originalWord);
-
   word = randomWord;
 
   gameState = GameState::PLAY;
