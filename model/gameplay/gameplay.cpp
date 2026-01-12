@@ -24,9 +24,9 @@ vector<Word> Gameplay::getWords(int categoryIndex)
   return words;
 }
 
-int Gameplay::addScore()
+int Gameplay::addScore(int point)
 {
-  return score += 5;
+  return score += point;
 }
 
 void Gameplay::setWord(Word randomWord)

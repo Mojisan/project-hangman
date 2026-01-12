@@ -45,7 +45,7 @@ public:
 
   vector<Word> getWords(int categoryIndex);
 
-  int addScore();
+  int addScore(int point);
 
   void setWord(Word randomWord);
 

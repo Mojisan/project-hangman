@@ -65,6 +65,8 @@ void Hangman::play()
 
   View view(gameplay);
 
+  int scorePoint = 5;
+
   while (gameplay.gameState != Gameplay::GameState::EXIT)
   {
     switch (gameplay.gameState)
@@ -112,7 +114,7 @@ void Hangman::play()
 
         if (rule.isCorrect(charInput, gameplay.word->word))
         {
-          gameplay.addScore();
+          gameplay.addScore(scorePoint);
 
           if (gameplay.word.has_value() &&
               rule.isWinning(gameplay.word.value(), gameplay.currentCharacter))
