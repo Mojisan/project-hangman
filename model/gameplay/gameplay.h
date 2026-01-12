@@ -58,6 +58,14 @@ public:
   bool isPlaying();
 
   void setExitGame();
+
+  string getRevealedWord(vector<char> currentCharacters, string word);
+
+  bool hasCharacter(vector<char> currentCharacters, char character);
+
+  string removeSpecialCharacter(string word);
+
+  bool isAlphabet(char character);
 };
 
 #endif
