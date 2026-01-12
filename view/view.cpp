@@ -44,9 +44,7 @@ void View::printScore()
 
 void View::printGameStatus()
 {
-  int characterCount = gameplay.word->removeSpecialCharacter().size();
-
-  cout << gameplay.word->transformWord(gameplay.currentCharacter);
+  cout << gameplay.getRevealedWord(gameplay.currentCharacter, gameplay.originalWord);
 
   cout << "  score  " << gameplay.score << ", remaining incorrect guess " << gameplay.currentGuessPoint << endl;
 }

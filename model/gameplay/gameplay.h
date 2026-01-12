@@ -30,6 +30,7 @@ public:
   int score;
   int currentGuessPoint;
   optional<Word> word;
+  string originalWord;
   vector<char> currentCharacter;
   GameState gameState;
   vector<Category> categorys;
@@ -57,6 +58,14 @@ public:
   bool isPlaying();
 
   void setExitGame();
+
+  string getRevealedWord(vector<char> currentCharacters, string word);
+
+  bool hasCharacter(vector<char> currentCharacters, char character);
+
+  string removeSpecialCharacter(string word);
+
+  bool isAlphabet(char character);
 };
 
 #endif
